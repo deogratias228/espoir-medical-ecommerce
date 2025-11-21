@@ -16,12 +16,12 @@ export default function AboutPage() {
             <section className="grid md:grid-cols-2 gap-10 items-center mb-16">
                 <div>
                     <h2 className="text-2xl font-semibold text-blue-800 mb-3">Notre Mission</h2>
-                    <p className="leading-relaxed">
+                    <p className="leading-relaxed text-justify">
                         Espoir Médical est une entreprise spécialisée dans la vente de matériel médical,
                         paramédical et sportif. Depuis notre création, nous avons à cœur de rendre les
-                        équipements de qualité accessibles aux professionnels comme aux particuliers.
+                        équipements de qualité accessibles aux professionnels comme aux particuliers.&nbsp;
                     </p>
-                    <p className="mt-4 leading-relaxed">
+                    <p className="mt-4 leading-relaxed text-justify">
                         Nous travaillons avec des marques reconnues pour leur fiabilité afin de garantir
                         la sécurité, la durabilité et la performance de chaque produit.
                     </p>

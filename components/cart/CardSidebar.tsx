@@ -19,7 +19,7 @@ export default function CartSidebar({ isOpen, onClose }: CartSidebarProps) {
 
   const whatsappMessage = encodeURIComponent(
     `Bonjour, je souhaite commander les produits suivants :\n\n${cart
-      .map((item) => `\n* *${item.name}* x${item.quantity}\n`)
+      .map((item) => `\n* \`\`\`${item.quantity}\`\`\` *${item.name}*\n`)
       .join("\n")}\n\nMontant total estimé : ${total.toLocaleString()} F CFA`
   );
 

@@ -23,10 +23,10 @@ export default function HomePage() {
   }, []);
 
   return (
-    <main className="text-gray-700">
+    <main className="text-gray-700 w-full">
       {/* ===== Hero Section ===== */}
       <section className="bg-green-50">
-        <div className="container mx-auto px-2 md:px-4 py-16 grid md:grid-cols-2 gap-10 items-center">
+        <div className="mx-auto px-4 md:px-4 py-16 grid md:grid-cols-2 gap-10 items-center">
           <div>
             <h1 className="text-2xl md:text-4xl font-bold text-green-900 leading-tight mb-4">
               Matériel Médical & Sportif <br /> Fiable et Accessible
@@ -63,25 +63,25 @@ export default function HomePage() {
       </section>
 
       {/* ===== Section : Avantages ===== */}
-      <section className="container mx-auto px-4 py-14">
+      <section className="mx-auto px-4 py-14">
         <h2 className="text-center text-2xl font-bold text-green-900 mb-10">
           Pourquoi choisir Espoir Médical ?
         </h2>
 
         <div className="grid md:grid-cols-3 gap-8">
-          <div className="text-center bg-white p-6 rounded-2xl shadow hover:shadow-md transition">
+          <div className="text-center bg-white/50 border border-gray-200 p-2 py-6 md:p-6 rounded-lg md:rounded-2xl shadow hover:shadow-2xl transition">
             <Shield className="mx-auto text-green-700 mb-3" size={40} />
             <h3 className="font-semibold text-lg text-green-800 mb-2">Qualité garantie</h3>
             <p>Des produits certifiés, sélectionnés auprès de fournisseurs fiables.</p>
           </div>
 
-          <div className="text-center bg-white p-6 rounded-2xl shadow hover:shadow-md transition">
+          <div className="text-center bg-white/50 border border-gray-200 p-2 py-6 md:p-6 rounded-lg md:rounded-2xl shadow hover:shadow-2xl transition">
             <HeartPulse className="mx-auto text-green-700 mb-3" size={40} />
             <h3 className="font-semibold text-lg text-green-800 mb-2">Santé & Bien-être</h3>
             <p>Des équipements pour les cliniques, hôpitaux, cabinets et particuliers.</p>
           </div>
 
-          <div className="text-center bg-white p-6 rounded-2xl shadow hover:shadow-md transition">
+          <div className="text-center bg-white/50 border border-gray-200 p-2 py-6 md:p-6 rounded-lg md:rounded-2xl shadow hover:shadow-2xl transition">
             <Dumbbell className="mx-auto text-green-700 mb-3" size={40} />
             <h3 className="font-semibold text-lg text-green-800 mb-2">Sport & Rééducation</h3>
             <p>Une gamme complète pour le fitness, la kinésithérapie et la remise en forme.</p>
@@ -91,7 +91,7 @@ export default function HomePage() {
 
       {/* ===== Section : Produits phares ===== */}
       <section className="bg-gray-50 py-14">
-        <div className="container mx-auto px-4">
+        <div className="mx-auto px-4">
           <div className="flex justify-between items-center mb-8">
             <h2 className="text-2xl font-bold text-green-900" id='top-products'>Produits populaires</h2>
             <Link href="/products" className="flex items-center text-green-700 font-medium hover:text-green-800">

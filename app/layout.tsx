@@ -74,7 +74,7 @@ export default function RootLayout({
         <CartProvider>
           <div className="flex min-h-screen flex-col">
             <Header />
-            <main className="flex-grow bg-white px-2">
+            <main className="flex-grow bg-white">
               {children}
             </main>
             <Footer />

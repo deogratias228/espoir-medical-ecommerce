@@ -14,9 +14,9 @@ interface ProductCardProps {
 export default function ProductCard({ product }: ProductCardProps) {
   const { addToCart } = useCart();
 
-  const whatsappLink = `https://wa.me/22891798292?text=Bonjour!%20Je%20souhaite%20avoir%20plus%20d'informations%20sur%20le%20produit%20"${encodeURIComponent(
+  const whatsappLink = `https://wa.me/22891798292?text=Bonjour!%20Je%20souhaite%20avoir%20plus%20d'informations%20sur%20le%20produit%20*${encodeURIComponent(
     product.name
-  )}".`;
+  )}*.`;
   const detailsLink = `/products/${product.slug}`;
 
   const formattedPrice =
@@ -39,7 +39,7 @@ export default function ProductCard({ product }: ProductCardProps) {
 
   return (
     <article
-      className="bg-white rounded-xl shadow-md hover:shadow-lg transition overflow-hidden group cursor-pointer"
+      className="bg-gray-50 rounded-xl border border-gray-200 shadow-md hover:shadow-lg transition overflow-hidden group cursor-pointer"
       onClick={() => (window.location.href = detailsLink)}
     >
       {/* Image du produit */}
