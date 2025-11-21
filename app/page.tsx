@@ -1,103 +1,127 @@
-import Image from "next/image";
+'use client';
 
-export default function Home() {
+import Link from 'next/link';
+import { MessageCircle, ArrowRight, Shield, HeartPulse, Dumbbell } from 'lucide-react';
+import ProductCard from '@/components/products/ProductCard';
+import { useEffect, useState } from 'react';
+import { Product } from '@/lib/types';
+import { getTopProducts } from '@/lib/products';
+
+export default function HomePage() {
+  const [products, setProducts] = useState<Product[]>([]);
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const topProducts = await getTopProducts();
+        setProducts(topProducts);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    fetchProducts();
+  }, []);
+
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+    <main className="text-gray-700">
+      {/* ===== Hero Section ===== */}
+      <section className="bg-green-50">
+        <div className="container mx-auto px-4 py-16 grid md:grid-cols-2 gap-10 items-center">
+          <div>
+            <h1 className="text-4xl font-bold text-green-900 leading-tight mb-4">
+              Matériel Médical & Sportif <br /> Fiable et Accessible
+            </h1>
+            <p className="text-gray-600 mb-6 max-w-md">
+              Chez <strong>Espoir Médical</strong>, nous fournissons du matériel médical et sportif
+              de qualité pour les professionnels de santé et les particuliers au Togo.
+            </p>
+            <div className="flex items-center space-x-4">
+              <Link
+                href="/products"
+                className="bg-green-700 hover:bg-green-800 text-white px-3 md:px-6 py-3 rounded-xl font-semibold transition"
+              >
+                Voir le catalogue
+              </Link>
+              <Link
+                href="https://wa.me/22891798292"
+                target="_blank"
+                className="flex items-center text-green-700 font-medium hover:text-green-800 transition"
+              >
+                <MessageCircle size={20} className="mr-1" />
+                Contact WhatsApp
+              </Link>
+            </div>
+          </div>
+          <div className="flex justify-center">
+            <img
+              src="/images/home/hero-medical.png"
+              alt="Équipements médicaux modernes"
+              className="w-full max-w-md"
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+      </section>
+
+      {/* ===== Section : Avantages ===== */}
+      <section className="container mx-auto px-4 py-14">
+        <h2 className="text-center text-2xl font-bold text-green-900 mb-10">
+          Pourquoi choisir Espoir Médical ?
+        </h2>
+
+        <div className="grid md:grid-cols-3 gap-8">
+          <div className="text-center bg-white p-6 rounded-2xl shadow hover:shadow-md transition">
+            <Shield className="mx-auto text-green-700 mb-3" size={40} />
+            <h3 className="font-semibold text-lg text-green-800 mb-2">Qualité garantie</h3>
+            <p>Des produits certifiés, sélectionnés auprès de fournisseurs fiables.</p>
+          </div>
+
+          <div className="text-center bg-white p-6 rounded-2xl shadow hover:shadow-md transition">
+            <HeartPulse className="mx-auto text-green-700 mb-3" size={40} />
+            <h3 className="font-semibold text-lg text-green-800 mb-2">Santé & Bien-être</h3>
+            <p>Des équipements pour les cliniques, hôpitaux, cabinets et particuliers.</p>
+          </div>
+
+          <div className="text-center bg-white p-6 rounded-2xl shadow hover:shadow-md transition">
+            <Dumbbell className="mx-auto text-green-700 mb-3" size={40} />
+            <h3 className="font-semibold text-lg text-green-800 mb-2">Sport & Rééducation</h3>
+            <p>Une gamme complète pour le fitness, la kinésithérapie et la remise en forme.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== Section : Produits phares ===== */}
+      <section className="bg-gray-50 py-14">
+        <div className="container mx-auto px-4">
+          <div className="flex justify-between items-center mb-8">
+            <h2 className="text-2xl font-bold text-green-900" id='top-products'>Produits populaires</h2>
+            <Link href="/products" className="flex items-center text-green-700 font-medium hover:text-green-800">
+              Voir tout <ArrowRight size={18} className="ml-1" />
+            </Link>
+          </div>
+
+          {/* Simulation produits (à remplacer plus tard par les données API) */}
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            {products.map((product) => (
+              <ProductCard key={product.slug} product={product} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ===== Section : Engagement ===== */}
+      <section className="container mx-auto px-4 py-14 text-center">
+        <h2 className="text-2xl font-bold text-green-900 mb-4">Notre engagement</h2>
+        <p className="max-w-2xl mx-auto text-gray-600 mb-8">
+          Nous croyons que la santé ne doit pas être un luxe. Espoir Médical s'engage à offrir
+          des produits fiables, à prix juste, avec un service client à l’écoute.
+        </p>
+        <Link
+          href="/contact"
+          className="inline-flex items-center bg-green-700 hover:bg-green-800 text-white px-6 py-3 rounded-full font-semibold transition"
         >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+          Nous contacter
+        </Link>
+      </section>
+    </main>
   );
 }
