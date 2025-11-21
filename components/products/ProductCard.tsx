@@ -63,13 +63,6 @@ export default function ProductCard({ product }: ProductCardProps) {
         </div>
 
         <div className="flex gap-2 mt-2">
-          {/* <button
-            onClick={handleAddToCart}
-            className="flex-1 bg-green-700 hover:bg-green-800 text-white text-sm py-2 rounded-lg transition"
-          >
-            Ajouter au panier
-          </button> */}
-
           <Link
             href={whatsappLink}
             target="_blank"

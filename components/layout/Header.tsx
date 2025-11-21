@@ -19,13 +19,13 @@ const Header = () => {
   return (
     <header className="sticky top-0 z-50 bg-white shadow-sm border-b border-gray-300">
       <div className="bg-green-800 p-2 text-center text-sm font-medium text-white">
-        Livraison disponible partout à Lomé et gratuite à partir de 50 000 F CFA!
+        Livraison disponible partout au Togo!
       </div>
 
       <div className="container mx-auto flex items-center justify-between px-4 py-3 md:py-4">
         <Link
           href="/"
-          className="text-2xl font-extrabold tracking-tight text-green-900 hover:text-green-700 transition"
+          className="text-xl md:text-2xl font-extrabold tracking-tight text-green-900 hover:text-green-700 transition"
         >
           Espoir<span className="text-green-700">Médical</span>
         </Link>

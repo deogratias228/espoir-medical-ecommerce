@@ -26,9 +26,9 @@ export default function HomePage() {
     <main className="text-gray-700">
       {/* ===== Hero Section ===== */}
       <section className="bg-green-50">
-        <div className="container mx-auto px-4 py-16 grid md:grid-cols-2 gap-10 items-center">
+        <div className="container mx-auto px-2 md:px-4 py-16 grid md:grid-cols-2 gap-10 items-center">
           <div>
-            <h1 className="text-4xl font-bold text-green-900 leading-tight mb-4">
+            <h1 className="text-2xl md:text-4xl font-bold text-green-900 leading-tight mb-4">
               Matériel Médical & Sportif <br /> Fiable et Accessible
             </h1>
             <p className="text-gray-600 mb-6 max-w-md">
@@ -38,14 +38,14 @@ export default function HomePage() {
             <div className="flex items-center space-x-4">
               <Link
                 href="/products"
-                className="bg-green-700 hover:bg-green-800 text-white px-3 md:px-6 py-3 rounded-xl font-semibold transition"
+                className="bg-green-700 hover:bg-transparent text-white hover:text-green-700 border-green-700 hover:border px-2 md:px-6 py-2 rounded-xl font-semibold transition"
               >
                 Voir le catalogue
               </Link>
               <Link
                 href="https://wa.me/22891798292"
                 target="_blank"
-                className="flex items-center text-green-700 font-medium hover:text-green-800 transition"
+                className="flex items-center text-green-700 hover:bg-green-700 font-medium hover:text-white transition px-2 md:px-6 py-2 rounded-xl border border-green-700"
               >
                 <MessageCircle size={20} className="mr-1" />
                 Contact WhatsApp
