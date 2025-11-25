@@ -26,7 +26,7 @@ export default function HomePage() {
     <main className="text-gray-700 w-full">
       {/* ===== Hero Section ===== */}
       <section className="bg-green-50">
-        <div className="mx-auto px-4 md:px-4 py-16 grid md:grid-cols-2 gap-10 items-center">
+        <div className="mx-auto px-4 container py-16 grid md:grid-cols-2 gap-10 items-center">
           <div>
             <h1 className="text-2xl md:text-4xl font-bold text-green-900 leading-tight mb-4">
               Matériel Médical & Sportif <br /> Fiable et Accessible
@@ -63,12 +63,12 @@ export default function HomePage() {
       </section>
 
       {/* ===== Section : Avantages ===== */}
-      <section className="mx-auto px-4 py-14">
+      <section className="mx-auto px-4 py-14 container">
         <h2 className="text-center text-2xl font-bold text-green-900 mb-10">
           Pourquoi choisir Espoir Médical ?
         </h2>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-6">
           <div className="text-center bg-white/50 border border-gray-200 p-2 py-6 md:p-6 rounded-lg md:rounded-2xl shadow hover:shadow-2xl transition">
             <Shield className="mx-auto text-green-700 mb-3" size={40} />
             <h3 className="font-semibold text-lg text-green-800 mb-2">Qualité garantie</h3>
@@ -91,7 +91,7 @@ export default function HomePage() {
 
       {/* ===== Section : Produits phares ===== */}
       <section className="bg-gray-50 py-14">
-        <div className="mx-auto px-4">
+        <div className="mx-auto px-4 container">
           <div className="flex justify-between items-center mb-8">
             <h2 className="text-2xl font-bold text-green-900" id='top-products'>Produits populaires</h2>
             <Link href="/products" className="flex items-center text-green-700 font-medium hover:text-green-800">

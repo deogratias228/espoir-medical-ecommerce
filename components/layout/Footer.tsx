@@ -16,11 +16,11 @@ const Footer = () => {
 
   return (
     <footer className="bg-green-950 text-white">
-      <div className="container mx-auto p-4  md:p-12">
+      <div className="container mx-auto p-4">
         <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
 
           {/* Section 1: Contact et Présentation */}
-          <div className="col-span-2 md:col-span-1">
+          <div className="col-span-2">
             <h3 className="text-xl font-bold mb">Espoir Médical</h3>
             <p className="text-sm leading-relaxed text-justify">
               Fournisseur de matériels médicaux, chirurgicaux, orthopédiques, sportifs et de kinésithérapie au Togo.
@@ -55,9 +55,20 @@ const Footer = () => {
       {/* Droit d'auteur */}
       <div className="border-t border-gray-700 py-4 text-center">
         <p className="text-sm text-gray-500">
-          © {new Date().getFullYear()} Espoir Médical. Tous droits réservés.
+          © {new Date().getFullYear()} Espoir Médical. Tous droits réservés. —
+          Développé par{" "}
+          <a
+            href="https://deowoblesse.tech"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-400 hover:underline cursor-pointer"
+          >
+            Gratias Technology
+          </a>
+          .
         </p>
       </div>
+
     </footer>
   );
 };
