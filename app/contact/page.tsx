@@ -94,7 +94,7 @@ export default function ContactPage() {
             <MapPin className="text-green-700 mt-1" />
             <div>
               <h3 className="font-semibold text-green-800">Adresse</h3>
-              <p>Lomé, Togo – Quartier Adidogomé</p>
+              <p>Lomé, Togo – Tokoin derrière CHU Campus</p>
             </div>
           </div>
 
