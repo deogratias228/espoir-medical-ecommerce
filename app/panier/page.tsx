@@ -136,9 +136,11 @@ function CartViewContent() {
                         </Link>
                         <Link
                             href={`https://wa.me/22891798292?text=${encodeURIComponent(
-                                `Bonjour, je souhaite commander les produits suivants :\n\n${cart
-                                    .map((item) => `- ${item.name} x${item.quantity}`)
-                                    .join("\n")}\n\nMontant total estimé : ${total.toLocaleString()} F CFA`
+                                `Bonjour, je souhaite commander les produits suivants :\n\n
+                                ${cart
+                                    .map((item) => `- ${item.name} x${item.quantity} (https://espoir-medical.com/products/${item.id})`)
+                                    .join("\n")
+                                }`
                             )}`}
                             target="_blank"
                             className="block w-full bg-green-600 text-white text-center py-3 rounded-lg font-medium hover:bg-green-700 transition"

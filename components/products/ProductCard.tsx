@@ -26,7 +26,7 @@ export default function ProductCard({ product }: ProductCardProps) {
         currency: "XOF",
         maximumFractionDigits: 0,
       }).format(product.price)
-      : "Prix non défini";
+      : "Prix sur demande";
 
   const handleWhatsappClick = (e: MouseEvent<HTMLAnchorElement>) => {
     e.stopPropagation();
@@ -39,11 +39,11 @@ export default function ProductCard({ product }: ProductCardProps) {
 
   return (
     <article
-      className="bg-gray-50 rounded-xl border border-gray-200 shadow-md hover:shadow-lg transition overflow-hidden group cursor-pointer"
+      className="bg-gray-50 rounded md:rounded-xl border border-gray-200 shadow-md hover:shadow-lg transition overflow-hidden group cursor-pointer"
       onClick={() => (window.location.href = detailsLink)}
     >
       {/* Image du produit */}
-      <div className="relative w-full h-36 md:h-52 bg-gray-100">
+      <div className="relative w-full h-32 md:h-52 bg-gray-100">
         <Image
           src={product.image || "/images/placeholder.jpg"}
           alt={product.name}
@@ -54,27 +54,27 @@ export default function ProductCard({ product }: ProductCardProps) {
       </div>
 
       {/* Détails du produit */}
-      <div className="p-4 flex flex-col justify-between space-y-2">
+      <div className="p-2 md:p-4 flex flex-col justify-between space-y-0 md:space-y-2">
         <div>
           <h3 className="font-semibold text-gray-800 line-clamp-1">
             {product.name}
           </h3>
-          <p className="text-gray-700 font-bold mt-1">{formattedPrice}</p>
+          <p className="text-gray-700 font-bold mt-0 md:mt-1">{formattedPrice}</p>
         </div>
 
-        <div className="flex gap-2 mt-2">
+        <div className="gap-2 mt-1 md:mt-2 flex">
           <Link
             href={whatsappLink}
             target="_blank"
             onClick={handleWhatsappClick}
-            className="flex-2 text-center border border-green-700 text-green-700 hover:bg-green-700 hover:text-white text-sm py-2 rounded-lg transition"
+            className="text-center text-white bg-green-700 hover:bg-green-800 hover:font-semibold text-sm py-1 px-1 md:px-6 md:py-2 rounded md:rounded-lg transition"
           >
-            WhatsApp
+            Commander
           </Link>
 
           <button
             onClick={handleAddToCart}
-            className="flex-1 text-green-900 font-bold hover:bg-green-200 text-sm py-2 px-auto cursor-pointer rounded-lg transition flex items-center justify-center space-x-2"
+            className="flex-1 text-green-900 font-bold hover:bg-green-200 text-sm py-0 md:py-2 px-auto cursor-pointer rounded-lg transition flex items-center justify-center"
           >
             <ShoppingCartIcon size={22} />
           </button>

@@ -18,9 +18,8 @@ export interface ProductDetails {
     id: number;
     slug: string;
     name: string;
-    description?: string | null;
     price?: number | null;
     images: string[];
-    updated_at: string;
+    description?: string | null;
     category: string;
 }

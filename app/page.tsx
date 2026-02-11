@@ -6,6 +6,7 @@ import ProductCard from '@/components/products/ProductCard';
 import { useEffect, useState } from 'react';
 import { Product } from '@/lib/types';
 import { getTopProducts } from '@/lib/products';
+import { motion, Variants } from 'framer-motion';
 
 export default function HomePage() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -22,45 +23,88 @@ export default function HomePage() {
     fetchProducts();
   }, []);
 
+  const fadeUp: Variants = {
+    hidden: { opacity: 0, y: 40 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: "easeOut",
+      },
+    },
+  };
+
+  const staggerContainer = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.15,
+      },
+    },
+  };
+
+
   return (
     <main className="text-gray-700 w-full">
       {/* ===== Hero Section ===== */}
       <section className="bg-green-50">
-        <div className="mx-auto px-4 container py-16 grid md:grid-cols-2 gap-10 items-center">
-          <div>
-            <h1 className="text-2xl md:text-4xl font-bold text-green-900 leading-tight mb-4">
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          animate="visible"
+          className="mx-auto px-4 container py-16 grid md:grid-cols-2 gap-10 items-center"
+        >
+          <motion.div variants={fadeUp}>
+            <motion.h1
+              variants={fadeUp}
+              className="text-2xl md:text-4xl font-bold text-green-900 leading-tight mb-4"
+            >
               Matériel Médical & Sportif <br /> Fiable et Accessible
-            </h1>
-            <p className="text-gray-600 mb-6 max-w-md">
+            </motion.h1>
+
+            <motion.p
+              variants={fadeUp}
+              className="text-gray-600 mb-6 max-w-md"
+            >
               Chez <strong>Espoir Médical</strong>, nous fournissons du matériel médical et sportif
               de qualité pour les professionnels de santé et les particuliers au Togo.
-            </p>
-            <div className="flex items-center space-x-4">
+            </motion.p>
+
+            <motion.div variants={fadeUp} className="flex items-center space-x-4">
               <Link
                 href="/products"
-                className="bg-green-700 hover:bg-transparent text-white hover:text-green-700 border-green-700 hover:border px-2 md:px-6 py-2 rounded-xl font-semibold transition"
+                className="bg-green-700 hover:bg-transparent text-white hover:text-green-700 border-green-700 hover:border px-2 md:px-6 py-2 rounded md:rounded-xl font-semibold transition"
               >
                 Voir le catalogue
               </Link>
+
               <Link
                 href="https://wa.me/22891798292"
                 target="_blank"
-                className="flex items-center text-green-700 hover:bg-green-700 font-medium hover:text-white transition px-2 md:px-6 py-2 rounded-xl border border-green-700"
+                className="flex items-center text-green-700 hover:bg-green-700 font-medium hover:text-white transition px-2 md:px-6 py-2 rounded md:rounded-xl border border-green-700"
               >
-                <MessageCircle size={20} className="mr-1" />
                 Contact WhatsApp
               </Link>
-            </div>
-          </div>
-          <div className="flex justify-center">
-            <img
+            </motion.div>
+          </motion.div>
+
+          <motion.div
+            variants={fadeUp}
+            className="flex justify-center"
+          >
+            <motion.img
               src="/images/home/hero-medical.png"
               alt="Équipements médicaux modernes"
               className="w-full max-w-md"
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.8 }}
             />
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </section>
+
 
       {/* ===== Section : Avantages ===== */}
       <section className="mx-auto px-4 py-14 container">
@@ -68,43 +112,64 @@ export default function HomePage() {
           Pourquoi choisir Espoir Médical ?
         </h2>
 
-        <div className="grid md:grid-cols-3 gap-6">
-          <div className="text-center bg-white/50 border border-gray-200 p-2 py-6 md:p-6 rounded-lg md:rounded-2xl shadow hover:shadow-2xl transition">
-            <Shield className="mx-auto text-green-700 mb-3" size={40} />
-            <h3 className="font-semibold text-lg text-green-800 mb-2">Qualité garantie</h3>
-            <p>Des produits certifiés, sélectionnés auprès de fournisseurs fiables.</p>
-          </div>
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="grid md:grid-cols-3 gap-6"
+        >
+          {[Shield, HeartPulse, Dumbbell].map((Icon, index) => (
+            <motion.div
+              key={index}
+              variants={fadeUp}
+              whileHover={{ y: -8 }}
+              className="text-center bg-white/50 border border-gray-200 p-2 py-6 md:p-6 rounded-lg md:rounded-2xl shadow hover:shadow-2xl transition"
+            >
+              <Icon className="mx-auto text-green-700 mb-3" size={40} />
+              <h3 className="font-semibold text-lg text-green-800 mb-2">
+                {index === 0 && "Qualité garantie"}
+                {index === 1 && "Santé & Bien-être"}
+                {index === 2 && "Sport & Rééducation"}
+              </h3>
+              <p>
+                {index === 0 &&
+                  "Des produits certifiés, sélectionnés auprès de fournisseurs fiables."}
+                {index === 1 &&
+                  "Des équipements pour les cliniques, hôpitaux, cabinets et particuliers."}
+                {index === 2 &&
+                  "Une gamme complète pour le fitness, la kinésithérapie et la remise en forme."}
+              </p>
+            </motion.div>
+          ))}
+        </motion.div>
 
-          <div className="text-center bg-white/50 border border-gray-200 p-2 py-6 md:p-6 rounded-lg md:rounded-2xl shadow hover:shadow-2xl transition">
-            <HeartPulse className="mx-auto text-green-700 mb-3" size={40} />
-            <h3 className="font-semibold text-lg text-green-800 mb-2">Santé & Bien-être</h3>
-            <p>Des équipements pour les cliniques, hôpitaux, cabinets et particuliers.</p>
-          </div>
-
-          <div className="text-center bg-white/50 border border-gray-200 p-2 py-6 md:p-6 rounded-lg md:rounded-2xl shadow hover:shadow-2xl transition">
-            <Dumbbell className="mx-auto text-green-700 mb-3" size={40} />
-            <h3 className="font-semibold text-lg text-green-800 mb-2">Sport & Rééducation</h3>
-            <p>Une gamme complète pour le fitness, la kinésithérapie et la remise en forme.</p>
-          </div>
-        </div>
       </section>
 
       {/* ===== Section : Produits phares ===== */}
       <section className="bg-gray-50 py-14">
         <div className="mx-auto px-4 container">
           <div className="flex justify-between items-center mb-8">
-            <h2 className="text-2xl font-bold text-green-900" id='top-products'>Produits populaires</h2>
-            <Link href="/products" className="flex items-center text-green-700 font-medium hover:text-green-800">
+            <h2 className="text-xl md:text-2xl font-bold text-green-900" id='top-products'>Produits populaires</h2>
+            <Link href="/products" className="text-sm md:text-base flex items-center text-green-700 font-medium hover:text-green-800">
               Voir tout <ArrowRight size={18} className="ml-1" />
             </Link>
           </div>
 
-          {/* Simulation produits (à remplacer plus tard par les données API) */}
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-6"
+          >
             {products.map((product) => (
-              <ProductCard key={product.slug} product={product} />
+              <motion.div key={product.slug} variants={fadeUp}>
+                <ProductCard product={product} />
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
+
         </div>
       </section>
 
