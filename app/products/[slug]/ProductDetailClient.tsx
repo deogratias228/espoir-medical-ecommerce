@@ -15,25 +15,8 @@ export default function ProductDetailClient({
     const router = useRouter();
     const { addToCart, increaseQuantity, decreaseQuantity, getItemQuantity } = useCart();
     const quantity = getItemQuantity(product.id);
-
-
     const [selectedImage, setSelectedImage] = useState(0);
     const [addedToCart, setAddedToCart] = useState(false);
-
-    const handleAddToCart = () => {
-        addToCart({
-            id: product.id,
-            slug: product.slug,
-            name: product.name,
-            price: product.price,
-            image: product.images?.[0] || "/images/placeholder.jpg",
-            description: product.description,
-            category: product.category || "",
-        });
-
-        setAddedToCart(true);
-        setTimeout(() => setAddedToCart(false), 2000);
-    };
 
     return (
         <div className="min-h-screen bg-gray-50">

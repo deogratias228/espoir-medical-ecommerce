@@ -4,97 +4,99 @@ import { getProduct } from "@/lib/products";
 import ProductDetailClient from "./ProductDetailClient";
 
 type Props = {
-  params: { slug: string };
+    params: Promise<{ slug: string }>;
 };
 
 // 🔥 SEO dynamique
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const product = await getProduct(params.slug);
+    const { slug } = await params;
+    const product = await getProduct(slug);
 
-  if (!product) {
+    if (!product) {
+        return {
+            title: "Produit non trouvé",
+            description: "Ce produit n'existe pas ou n'est plus disponible.",
+        };
+    }
+
+    const description =
+        product.description?.substring(0, 155) ||
+        `Achetez ${product.name} à Lomé, Togo. Prix: ${product.price?.toLocaleString()} FCFA.`;
+
+    const url = `https://espoir-medical.com/products/${product.slug}`;
+
     return {
-      title: "Produit non trouvé",
-      description: "Ce produit n'existe pas ou n'est plus disponible.",
-    };
-  }
-
-  const description =
-    product.description?.substring(0, 155) ||
-    `Achetez ${product.name} à Lomé, Togo. Prix: ${product.price?.toLocaleString()} FCFA.`;
-
-  const url = `https://espoir-medical.com/products/${product.slug}`;
-
-  return {
-    title: `${product.name} - Achat en ligne à Lomé | Espoir Médical`,
-    description,
-    openGraph: {
-      title: product.name,
-      description,
-      url,
-      siteName: "Espoir Médical",
-      locale: "fr_TG",
-      type: "website",
-      images: [
-        {
-          url: product.images?.[0] || "/images/placeholder.jpg",
+        title: `${product.name} - Achat en ligne à Lomé | Espoir Médical`,
+        description,
+        openGraph: {
+            title: product.name,
+            description,
+            url,
+            siteName: "Espoir Médical",
+            locale: "fr_TG",
+            type: "website",
+            images: [
+                {
+                    url: product.images?.[0] || "/images/placeholder.jpg",
+                },
+            ],
         },
-      ],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: product.name,
-      description,
-      images: [product.images?.[0] || "/images/placeholder.jpg"],
-    },
-  };
+        twitter: {
+            card: "summary_large_image",
+            title: product.name,
+            description,
+            images: [product.images?.[0] || "/images/placeholder.jpg"],
+        },
+    };
 }
 
 export default async function ProductPage({ params }: Props) {
-  const product = await getProduct(params.slug);
+    const { slug } = await params;
+    const product = await getProduct(slug);
 
-  if (!product) {
-    notFound();
-  }
+    if (!product) {
+        notFound();
+    }
 
-  // 📊 JSON-LD structuré (serveur = parfait pour SEO)
-  const structuredData = {
-    "@context": "https://schema.org",
-    "@type": "Product",
-    name: product.name,
-    description:
-      product.description || `${product.name} disponible à Lomé, Togo`,
-    image: product.images || [],
-    sku: product.id,
-    brand: {
-      "@type": "Brand",
-      name: "Votre Marque",
-    },
-    offers: {
-      "@type": "Offer",
-      url: `https://votreboutique.com/products/${product.slug}`,
-      priceCurrency: "XOF",
-      price: product.price,
-      availability: product.price
-        ? "https://schema.org/InStock"
-        : "https://schema.org/OutOfStock",
-      seller: {
-        "@type": "Organization",
-        name: "Espoir Médical",
-      },
-    },
-  };
+    // 📊 JSON-LD structuré (serveur = parfait pour SEO)
+    const structuredData = {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        name: product.name,
+        description:
+            product.description || `${product.name} disponible à Lomé, Togo`,
+        image: product.images || [],
+        sku: product.id,
+        brand: {
+            "@type": "Brand",
+            name: "Votre Marque",
+        },
+        offers: {
+            "@type": "Offer",
+            url: `https://votreboutique.com/products/${product.slug}`,
+            priceCurrency: "XOF",
+            price: product.price,
+            availability: product.price
+                ? "https://schema.org/InStock"
+                : "https://schema.org/OutOfStock",
+            seller: {
+                "@type": "Organization",
+                name: "Espoir Médical",
+            },
+        },
+    };
 
-  return (
-    <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(structuredData),
-        }}
-      />
+    return (
+        <>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify(structuredData),
+                }}
+            />
 
-      {/* UI interactive */}
-      <ProductDetailClient product={product} />
-    </>
-  );
+            {/* UI interactive */}
+            <ProductDetailClient product={product} />
+        </>
+    );
 }
