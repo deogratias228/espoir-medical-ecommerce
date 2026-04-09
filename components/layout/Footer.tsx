@@ -58,12 +58,12 @@ const Footer = () => {
           © {new Date().getFullYear()} Espoir Médical. Tous droits réservés. —
           Développé par{" "}
           <a
-            href="https://deowoblesse.tech"
+            href="https://wkdg.vercel.app"
             target="_blank"
             rel="noopener noreferrer"
             className="text-blue-400 hover:underline cursor-pointer"
           >
-            Gratias Technology
+            WK Déo Gratias
           </a>
           .
         </p>
