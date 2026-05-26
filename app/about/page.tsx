@@ -36,21 +36,24 @@ export default function AboutPage() {
             </section>
 
             {/* Valeurs */}
-            <section className="bg-blue-50 rounded-2xl p-8 text-center">
-                <h2 className="text-2xl font-semibold text-blue-800 mb-5">Nos Valeurs</h2>
-                <div className="grid md:grid-cols-3 gap-8">
-                    <div>
-                        <h3 className="font-semibold text-lg text-blue-700 mb-2">Qualité</h3>
-                        <p>Nous sélectionnons uniquement des produits testés et certifiés.</p>
+            <section className="text-center  flex justify-center">
+                <div className="max-w-5xl">
+                    <h2 className="text-2xl font-semibold text-blue-800 mb-5">Nos Valeurs</h2>
+                    <div className="grid md:grid-cols-3 gap-8">
+                        <div className="bg-blue-50 rounded-2xl p-8">
+                            <h3 className="font-semibold text-lg text-blue-700 mb-2">Qualité</h3>
+                            <p>Nous sélectionnons uniquement des produits testés et certifiés.</p>
+                        </div>
+                        <div className="bg-blue-50 rounded-2xl p-8">
+                            <h3 className="font-semibold text-lg text-blue-700 mb-2">Fiabilité</h3>
+                            <p>Nos clients bénéficient d’un suivi professionnel et d’une écoute attentive.</p>
+                        </div>
+                        <div className="bg-blue-50 rounded-2xl p-8">
+                            <h3 className="font-semibold text-lg text-blue-700 mb-2">Accessibilité</h3>
+                            <p>Nous offrons des solutions adaptées à tous les budgets.</p>
+                        </div>
                     </div>
-                    <div>
-                        <h3 className="font-semibold text-lg text-blue-700 mb-2">Fiabilité</h3>
-                        <p>Nos clients bénéficient d’un suivi professionnel et d’une écoute attentive.</p>
-                    </div>
-                    <div>
-                        <h3 className="font-semibold text-lg text-blue-700 mb-2">Accessibilité</h3>
-                        <p>Nous offrons des solutions adaptées à tous les budgets.</p>
-                    </div>
+
                 </div>
             </section>
         </main>
