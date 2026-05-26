@@ -13,8 +13,8 @@ export default function AboutPage() {
             </section>
 
             {/* Bloc mission et histoire */}
-            <section className="grid md:grid-cols-2 gap-10 items-center mb-16">
-                <div>
+            <section className="flex justify-center gap-10 items-center mb-16">
+                <div className="text-center max-w-3xl">
                     <h2 className="text-2xl font-semibold text-blue-800 mb-3">Notre Mission</h2>
                     <p className="leading-relaxed text-justify">
                         Espoir Médical est une entreprise spécialisée dans la vente de matériel médical,
@@ -26,13 +26,13 @@ export default function AboutPage() {
                         la sécurité, la durabilité et la performance de chaque produit.
                     </p>
                 </div>
-                <div className="flex justify-center">
+                {/* <div className="flex justify-center">
                     <img
                         src="/images/about/espoir-medical.jpeg"
                         alt="Image de la boutique Espoir Medical"
                         className="rounded-2xl shadow-lg w-full max-w-md"
                     />
-                </div>
+                </div> */}
             </section>
 
             {/* Valeurs */}
