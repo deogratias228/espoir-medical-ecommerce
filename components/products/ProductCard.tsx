@@ -59,7 +59,7 @@ export default function ProductCard({ product }: ProductCardProps) {
           <h3 className="font-semibold text-gray-800 line-clamp-1">
             {product.name}
           </h3>
-          <p className="text-gray-700 font-bold mt-0 md:mt-1">Prix sur demande</p> // Prix sur demande pour tous les produits
+          <p className="text-gray-700 font-bold mt-0 md:mt-1">Prix sur demande</p> 
           {/* <p className="text-gray-700 font-bold mt-0 md:mt-1">{formattedPrice}</p> */}
         </div>
 
