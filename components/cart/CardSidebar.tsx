@@ -90,9 +90,10 @@ export default function CartSidebar({ isOpen, onClose }: CartSidebarProps) {
                 <div className="flex-1">
                   <h3 className="text-sm font-medium line-clamp-1">{item.name}</h3>
                   <p className="text-xs text-gray-500">
-                    {item.price
+                    {/* {item.price
                       ? `${item.price.toLocaleString()} F`
-                      : "Prix non défini"}
+                      : "Prix non défini"} */}
+                      Prix non défini
                   </p>
                   <p className="text-xs text-gray-600">Qté : {item.quantity}</p>
                 </div>
