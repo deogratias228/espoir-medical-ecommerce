@@ -1,6 +1,7 @@
 "use client";
 
 import { useCart } from "@/context/CartContext";
+import { siteConfig } from "@/lib/data/site";
 import { X, Trash2, Share2, Check } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -16,11 +17,13 @@ export default function CartSidebar({ isOpen, onClose }: CartSidebarProps) {
   const [copied, setCopied] = useState(false);
 
   const total = cart.reduce((sum, item) => sum + (item.price || 0) * item.quantity, 0);
+  const getExternalLink = (slug: string) => {
+    return `${siteConfig.url}/products/${slug}`;
+  };
 
   const whatsappMessage = encodeURIComponent(
     `Bonjour, je souhaite commander les produits suivants :\n\n${cart
-      .map((item) => `\n* \`\`\`${item.quantity}\`\`\` *${item.name}*\n`)
-      .join("\n")}\n\nMontant total estimé : ${total.toLocaleString()} F CFA`
+      .map((item) => `\n* \`\`\`${item.quantity}\`\`\` *${item.name}* (${getExternalLink(item.slug)})\n`)}`
   );
 
   const whatsappLink = `https://wa.me/22897299127?text=${whatsappMessage}`;

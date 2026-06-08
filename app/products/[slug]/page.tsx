@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
     return {
         title: `${product.name} - Achat en ligne à Lomé | Espoir Médical`,
-        description,
+        description: `${description} \nDisponible chez Espoir Médical, votre fournisseur de matériel médical et sportif fiable au Togo.\n${product.description ? "Détails : " + product.description : ""}`,
         openGraph: {
             title: product.name,
             description,

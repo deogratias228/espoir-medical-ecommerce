@@ -6,6 +6,7 @@ import { Product } from "@/lib/types";
 import { MouseEvent } from "react";
 import { useCart } from "@/context/CartContext";
 import { ShoppingCartIcon } from "lucide-react";
+import { siteConfig } from "@/lib/data/site";
 
 interface ProductCardProps {
   product: Product;
@@ -13,10 +14,11 @@ interface ProductCardProps {
 
 export default function ProductCard({ product }: ProductCardProps) {
   const { addToCart } = useCart();
+  const externalLink = `${siteConfig.url}/products/${product.slug}`; // Lien externe vers le produit (ex: page de détails)
 
-  const whatsappLink = `https://wa.me/22897299127?text=Bonjour!%20Je%20souhaite%20avoir%20plus%20d'informations%20sur%20le%20produit%20*${encodeURIComponent(
-    product.name
-  )}*.`;
+  const whatsappLink = `https://wa.me/22897299127?text=Bonjour!%20Je%20souhaite%20avoir%20plus%20d'informations%20sur%20le%20produit%20${encodeURIComponent(
+    "*"+product.name +"* (" + externalLink + ")"
+  )}.`;
   const detailsLink = `/products/${product.slug}`;
 
   const formattedPrice =
@@ -40,7 +42,7 @@ export default function ProductCard({ product }: ProductCardProps) {
   return (
     <article
       className="bg-gray-50 rounded md:rounded-xl border border-gray-200 shadow-md hover:shadow-lg transition overflow-hidden group cursor-pointer"
-      onClick={() => (window.location.href = detailsLink)}
+      onClick={() => (window.location.href = externalLink)}
     >
       {/* Image du produit */}
       <div className="relative w-full h-32 md:h-52 bg-gray-100">

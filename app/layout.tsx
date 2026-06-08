@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     "Espoir Médical",
   ],
   openGraph: {
-    title: "Espoir Médical - Fournisseur de matériel médical au Togo",
+    title: "Espoir Médical - Fournisseur de matériel médical et sportif au Togo",
     description:
       "Découvrez nos équipements médicaux fiables et accessibles : fauteuils roulants, glucomètres, tensiomètres, et bien plus.",
     url: "https://espoir-medical.com",
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "https://espoir-medical.com/og-image.jpg",
+        url: "https://espoir-medical.com/images/home/hero-medical.png",
         width: 1200,
         height: 630,
         alt: "Espoir Médical - Boutique d’équipements médicaux au Togo",
@@ -52,10 +52,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Espoir Médical | Fournisseur de matériel médical au Togo",
+    title: "Espoir Médical | Fournisseur de matériel médical et sportif au Togo",
     description:
-      "Votre partenaire de confiance pour du matériel médical fiable et durable au Togo.",
-    images: ["https://espoir-medical.com/og-image.jpg"],
+      "Votre partenaire de confiance pour du matériel médical et sportif fiable et durable au Togo.",
+    images: ["https://espoir-medical.com/images/home/hero-medical.png"],
   },
   metadataBase: new URL("https://espoir-medical.com"),
 };

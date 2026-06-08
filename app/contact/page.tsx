@@ -5,6 +5,7 @@ import { useState } from "react";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import { sendMessage } from "@/lib/messages"; 
+import { siteConfig } from "@/lib/data/site";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -78,7 +79,7 @@ export default function ContactPage() {
             <Phone className="text-green-700 mt-1" />
             <div>
               <h3 className="font-semibold text-green-800">Téléphone</h3>
-              <p>+228 97 29 91 27</p>
+              <p>{siteConfig.contact.phone}</p>
             </div>
           </div>
 
@@ -86,7 +87,7 @@ export default function ContactPage() {
             <Mail className="text-green-700 mt-1" />
             <div>
               <h3 className="font-semibold text-green-800">Email</h3>
-              <p>contact@espoir-medical.com</p>
+              <p>{siteConfig.contact.email}</p>
             </div>
           </div>
 
@@ -94,7 +95,7 @@ export default function ContactPage() {
             <MapPin className="text-green-700 mt-1" />
             <div>
               <h3 className="font-semibold text-green-800">Adresse</h3>
-              <p>Lomé, Togo – Tokoin derrière CHU Campus</p>
+              <p>{siteConfig.contact.address}</p>
             </div>
           </div>
 
@@ -201,7 +202,7 @@ export default function ContactPage() {
           )}
           {submitStatus === "error" && (
             <p className="text-red-600 text-sm mt-2">
-              ❌ Une erreur est survenue. Vérifiez vos champs et réessayez.
+              Une erreur est survenue. Vérifiez vos champs et réessayez.
             </p>
           )}
         </form>

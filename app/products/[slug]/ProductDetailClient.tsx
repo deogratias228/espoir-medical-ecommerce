@@ -77,13 +77,14 @@ export default function ProductDetailClient({
                 <div className="bg-white rounded-lg shadow-md p-6 space-y-6">
                     <h2 className="text-3xl font-bold">{product.name}</h2>
 
-                    {product.price ? (
+                    {/* {product.price ? (
                         <p className="text-3xl font-bold text-green-600">
                             {product.price.toLocaleString()} F CFA
                         </p>
                     ) : (
                         <p className="text-gray-500">Prix sur demande</p>
-                    )}
+                        )} */}
+                        <p className="text-gray-500">Prix sur demande</p>
 
                     {product.description && (
                         <p className="text-gray-700 whitespace-pre-line">
