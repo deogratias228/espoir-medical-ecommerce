@@ -78,7 +78,7 @@ export default function ContactPage() {
             <Phone className="text-green-700 mt-1" />
             <div>
               <h3 className="font-semibold text-green-800">Téléphone</h3>
-              <p>+228 91 79 82 92</p>
+              <p>+228 97 29 91 27</p>
             </div>
           </div>
 
@@ -99,7 +99,7 @@ export default function ContactPage() {
           </div>
 
           <Link
-            href="https://wa.me/91798292"
+            href="https://wa.me/22897299127"
             target="_blank"
             className="inline-flex items-center bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-full font-medium transition"
           >

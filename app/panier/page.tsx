@@ -135,7 +135,7 @@ function CartViewContent() {
                             Retour à la boutique
                         </Link>
                         <Link
-                            href={`https://wa.me/22891798292?text=${encodeURIComponent(
+                            href={`https://wa.me/22897299127?text=${encodeURIComponent(
                                 `Bonjour, je souhaite commander les produits suivants :\n\n
                                 ${cart
                                     .map((item) => `- ${item.name} x${item.quantity} (https://espoir-medical.com/products/${item.id})`)

@@ -80,7 +80,7 @@ export default function HomePage() {
               </Link>
 
               <Link
-                href="https://wa.me/22891798292"
+                href="https://wa.me/22897299127"
                 target="_blank"
                 className="flex items-center text-green-700 hover:bg-green-700 font-medium hover:text-white transition px-2 md:px-6 py-2 rounded md:rounded-xl border border-green-700"
               >

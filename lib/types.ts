@@ -20,6 +20,7 @@ export interface ProductDetails {
     name: string;
     price?: number | null;
     images: string[];
+    cover: string | null;
     description?: string | null;
     category: string;
 }

@@ -46,7 +46,7 @@ const Footer = () => {
           <div className="space-y-2 text-sm text-gray-300 col-span-2 md:col-span-1">
             <h3 className="text-lg font-semibold mb-4 text-green-400">Contact</h3>
             <p className="flex items-center"><MapPin size={16} className="mr-2 text-green-400" /> Lomé, Togo</p>
-            <p className="flex items-center"><Phone size={16} className="mr-2 text-green-400" /> +228 91 79 82 92 (WhatsApp)</p>
+            <p className="flex items-center"><Phone size={16} className="mr-2 text-green-400" /> +228 97 29 91 27 (WhatsApp)</p>
             <p className="flex items-center"><Mail size={16} className="mr-2 text-green-400" /> contact@espoir-medical.com</p>
           </div>
         </div>

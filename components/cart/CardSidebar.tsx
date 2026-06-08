@@ -23,7 +23,7 @@ export default function CartSidebar({ isOpen, onClose }: CartSidebarProps) {
       .join("\n")}\n\nMontant total estimé : ${total.toLocaleString()} F CFA`
   );
 
-  const whatsappLink = `https://wa.me/22891798292?text=${whatsappMessage}`;
+  const whatsappLink = `https://wa.me/22897299127?text=${whatsappMessage}`;
 
   // Créer un lien partageable avec les produits du panier
   const createShareableLink = () => {

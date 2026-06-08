@@ -347,7 +347,7 @@ export default function ProductDetailPage() {
                 Des questions sur ce produit ? Contactez-nous à Lomé
               </p>
               <a
-                href={`https://wa.me/22891798292?text=${encodeURIComponent(
+                href={`https://wa.me/22897299127?text=${encodeURIComponent(
                   `Bonjour, j'ai une question concernant le produit : ${product.name}`
                 )}`}
                 target="_blank"

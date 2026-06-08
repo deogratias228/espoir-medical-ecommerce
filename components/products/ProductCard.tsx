@@ -14,7 +14,7 @@ interface ProductCardProps {
 export default function ProductCard({ product }: ProductCardProps) {
   const { addToCart } = useCart();
 
-  const whatsappLink = `https://wa.me/22891798292?text=Bonjour!%20Je%20souhaite%20avoir%20plus%20d'informations%20sur%20le%20produit%20*${encodeURIComponent(
+  const whatsappLink = `https://wa.me/22897299127?text=Bonjour!%20Je%20souhaite%20avoir%20plus%20d'informations%20sur%20le%20produit%20*${encodeURIComponent(
     product.name
   )}*.`;
   const detailsLink = `/products/${product.slug}`;

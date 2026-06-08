@@ -69,11 +69,11 @@ export default async function ProductPage({ params }: Props) {
         sku: product.id,
         brand: {
             "@type": "Brand",
-            name: "Votre Marque",
+            name: "Espoir Médical",
         },
         offers: {
             "@type": "Offer",
-            url: `https://votreboutique.com/products/${product.slug}`,
+            url: `https://espoir-medical.com/products/${product.slug}`,
             priceCurrency: "XOF",
             price: product.price,
             availability: product.price
