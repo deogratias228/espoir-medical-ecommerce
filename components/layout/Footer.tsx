@@ -58,7 +58,7 @@ const Footer = () => {
           © {new Date().getFullYear()} Espoir Médical. Tous droits réservés. —
           Développé par{" "}
           <a
-            href="https://wkdg.vercel.app"
+            href="https://wkdeogratias.com"
             target="_blank"
             rel="noopener noreferrer"
             className="text-blue-400 hover:underline cursor-pointer"
